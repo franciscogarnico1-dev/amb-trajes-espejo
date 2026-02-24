@@ -69,6 +69,7 @@ section {
 .hero {
   position: relative;
   height: 100vh;
+  padding: 120px 20px 80px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -119,13 +120,15 @@ section {
   position: relative;
 }
 
-.carousel-track {
-  display: flex;
-  gap: 30px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  cursor: grab;
-  padding: 20px;
+.carousel-track img,
+.carousel-track video {
+  width: 80vw;
+  max-width: 380px;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 25px;
+  flex-shrink: 0;
 }
 
 .carousel-track::-webkit-scrollbar {
@@ -262,6 +265,15 @@ footer {
 /* RESPONSIVE */
 
 @media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding: 120px 20px 60px;
+  }
+
+  .hero-bg-logo {
+    width: 300px;
+  }
+
   .hero h1 {
     font-size: 34px;
   }
@@ -269,5 +281,29 @@ footer {
   .card,
   .paquete-card {
     width: 90%;
+  }
+
+  .header-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .brand-amb {
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+
+  .brand-sub {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .btn-nav {
+    padding: 8px 18px;
+    font-size: 14px;
+  }
+
+  .carousel-track {
+    gap: 15px;
   }
 }

@@ -11,14 +11,15 @@ let scrollLeft;
 let autoScroll;
 
 // Auto movimiento suave
+
 function startAutoScroll() {
   autoScroll = setInterval(() => {
-    track.scrollLeft += 1;
+    if (track.scrollLeft >= track.scrollWidth - track.clientWidth) {
+      track.scrollLeft = 0;
+    } else {
+      track.scrollLeft += 1;
+    }
   }, 20);
-}
-
-function stopAutoScroll() {
-  clearInterval(autoScroll);
 }
 
 // Detectar si está visible en pantalla
