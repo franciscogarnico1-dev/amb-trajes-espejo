@@ -1,3 +1,8 @@
+// ===============================
+// CARRUSEL AUTO + DRAG + PAUSA
+// ===============================
+
+const carouselSection = document.querySelector(".carousel-section");
 const track = document.querySelector(".carousel-track");
 
 let isDragging = false;

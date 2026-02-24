@@ -16,12 +16,15 @@ section {
   text-align: center;
 }
 
+/* HEADER */
+
 .main-header {
   position: fixed;
   width: 100%;
   top: 0;
   background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(168, 85, 247, 0.15);
   z-index: 1000;
 }
 
@@ -43,36 +46,40 @@ section {
   letter-spacing: 4px;
   background: linear-gradient(90deg, #a855f7, #e9d5ff);
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
 }
 
 .brand-sub {
   font-size: 12px;
+  letter-spacing: 3px;
   color: #aaa;
 }
 
-.btn-nav,
-.btn-primary {
+.btn-nav {
   background: linear-gradient(90deg, #7e22ce, #a855f7);
-  padding: 12px 28px;
-  border-radius: 50px;
-  color: #fff;
+  padding: 10px 22px;
+  border-radius: 40px;
   text-decoration: none;
-  display: inline-block;
+  color: white;
 }
+
+/* HERO */
 
 .hero {
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 .hero-bg-logo {
   position: absolute;
   width: 600px;
   opacity: 0.15;
+  filter: blur(4px);
 }
 
 .hero-overlay {
@@ -91,27 +98,71 @@ section {
   font-size: 48px;
   background: linear-gradient(90deg, #fff, #c084fc);
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
 }
 
+.hero p {
+  margin: 25px 0;
+  color: #ccc;
+}
+
+.hero-badge {
+  color: #a855f7;
+  font-weight: 600;
+}
+
+/* CARRUSEL ARRASTRABLE */
+
 .carousel {
   overflow: hidden;
-  width: 100%;
+  position: relative;
 }
 
 .carousel-track {
   display: flex;
   gap: 30px;
-  will-change: transform;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  cursor: grab;
+  padding: 20px;
 }
 
-.carousel-track img {
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-track img,
+.carousel-track video {
   width: 380px;
   height: 520px;
   object-fit: cover;
   border-radius: 25px;
   flex-shrink: 0;
 }
+
+.carousel-track.active {
+  cursor: grabbing;
+}
+
+.carousel-section {
+  overflow: hidden;
+}
+
+/* BOTONES */
+
+.btn-primary {
+  display: inline-block;
+  margin-top: 40px;
+  background: linear-gradient(90deg, #7e22ce, #a855f7);
+  padding: 14px 28px;
+  border-radius: 50px;
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+}
+
+/* CARDS */
 
 .cards,
 .paquetes {
@@ -125,33 +176,98 @@ section {
 .card,
 .paquete-card {
   width: 280px;
-  background: #111;
+  background: linear-gradient(145deg, #0c0c0c, #141414);
   padding: 30px;
   border-radius: 25px;
+  border: 1px solid rgba(168, 85, 247, 0.15);
+  transition: 0.4s;
+}
+
+.card:hover,
+.paquete-card:hover {
+  transform: translateY(-12px);
+  border-color: rgba(168, 85, 247, 0.5);
+  box-shadow: 0 0 40px rgba(168, 85, 247, 0.15);
+}
+
+.paquete-card ul {
+  list-style: none;
+  margin: 20px 0;
+  text-align: left;
+  color: #ccc;
+}
+
+.precio {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 15px;
 }
 
 .descuento {
-  margin: 20px 0 60px 0;
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 60px;
   padding: 15px 35px;
+  display: inline-block;
   border-radius: 50px;
   background: linear-gradient(90deg, #ff00cc, #a855f7);
+  box-shadow: 0 0 40px rgba(255, 0, 200, 0.6);
+  animation: pulseGlow 1.8s infinite alternate;
 }
 
-@media (max-width: 768px) {
-  .header-content {
-    flex-direction: column;
-    gap: 10px;
+@keyframes pulseGlow {
+  from {
+    transform: scale(1);
+    box-shadow: 0 0 25px rgba(255, 0, 200, 0.5);
   }
+  to {
+    transform: scale(1.08);
+    box-shadow: 0 0 60px rgba(255, 0, 200, 0.9);
+  }
+}
+
+/*    UBICACIONES  */
+
+.ubicaciones h2 {
+  font-size: 42px;
+  margin-bottom: 30px;
+  background: linear-gradient(90deg, #ffffff, #c084fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.ubicaciones p {
+  font-size: 20px;
+  max-width: 900px;
+  margin: 0 auto 25px auto;
+  color: #ddd;
+}
+
+/* CTA */
+
+.cta {
+  background: linear-gradient(180deg, #0a0a0a, #140028);
+}
+
+/* FOOTER */
+
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  color: #777;
+  border-top: 1px solid rgba(168, 85, 247, 0.15);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
   .hero h1 {
     font-size: 34px;
   }
+
   .card,
   .paquete-card {
     width: 90%;
-  }
-  .carousel-track img {
-    width: 80vw;
-    height: auto;
-    aspect-ratio: 3/4;
   }
 }
