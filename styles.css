@@ -207,6 +207,7 @@ section {
   font-size: 28px;
   font-weight: 800;
   margin-bottom: 60px;
+  margin-top: 20px;
   padding: 15px 35px;
   display: inline-block;
   border-radius: 50px;
@@ -259,15 +260,69 @@ footer {
   border-top: 1px solid rgba(168, 85, 247, 0.15);
 }
 
-/* RESPONSIVE */
+/* ============================= */
+/* RESPONSIVE REAL (MÓVIL) */
+/* ============================= */
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+  section {
+    padding: 70px 20px;
+  }
+
+  .hero {
+    height: auto;
+    padding: 120px 20px 80px 20px;
+  }
+
+  .hero-bg-logo {
+    width: 350px;
+  }
+
   .hero h1 {
-    font-size: 34px;
+    font-size: 36px;
+    line-height: 1.2;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .btn-primary {
+    margin-top: 30px;
+  }
+
+  .descuento {
+    font-size: 22px;
+    padding: 12px 25px;
+    margin-bottom: 40px;
+  }
+
+  /* Carrusel */
+  .carousel-track img,
+  .carousel-track video {
+    width: 260px;
+    height: 380px;
+  }
+
+  /* Cards */
+  .cards,
+  .paquetes {
+    gap: 20px;
   }
 
   .card,
   .paquete-card {
-    width: 90%;
+    width: 85%;
+    max-width: 400px;
+  }
+
+  /* Ubicaciones */
+  .ubicaciones h2 {
+    font-size: 30px;
+  }
+
+  .ubicaciones p {
+    font-size: 16px;
+    padding: 0 10px;
   }
 }
