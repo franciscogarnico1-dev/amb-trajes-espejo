@@ -10,10 +10,18 @@ let startX;
 let scrollLeft;
 let autoScroll;
 
+// Duplicar contenido para efecto infinito
+track.innerHTML += track.innerHTML;
+
 // Auto movimiento suave
 function startAutoScroll() {
   autoScroll = setInterval(() => {
     track.scrollLeft += 1;
+
+    // Cuando llegue a la mitad del contenido duplicado
+    if (track.scrollLeft >= track.scrollWidth / 2) {
+      track.scrollLeft -= track.scrollWidth / 2;
+    }
   }, 20);
 }
 
@@ -91,4 +99,10 @@ cards.forEach((card) => {
   card.style.transform = "translateY(40px)";
   card.style.transition = "all 0.6s ease";
   observer.observe(card);
+});
+
+track.addEventListener("mouseup", () => {
+  isDragging = false;
+  track.classList.remove("active");
+  startAutoScroll();
 });
